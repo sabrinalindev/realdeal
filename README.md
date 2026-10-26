@@ -1,14 +1,25 @@
-## Installation
+# Real Deal
+A platform for buyers and sellers to list second hand deals.
 
-check it here:https://realdeal-2.onrender.com/ 
-1. Clone repo
-2. run `npm install`
+# Link
+https://realdeal-2.onrender.com
 
-## Usage
+# 📋 How to use
+Click on link.    
+Make an account, users can post item, description, price and upload URL for image. 
 
-1. run `npm run dev`
-2. Navigate to `localhost:8080`
+# 📷 Images
+![login page](public/img/login.jpg)
+![login page2](public/img/login2.jpg)
+![listing](public/img/listing.jpg)
+![listing2](public/img/listing2.jpg)
 
-## Credit
 
-Modified from Scotch.io's auth tutorial
+# 🔨 Built With
+HTML5 – structure,    
+CSS3 – responsive design and background,    
+JavaScript - frontend and backend.  
+Node - backend.  
+
+# 🧠 What I Learned
+How to build routes, using ejs to render html files.
