@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <h3>Items for sale</h3>
+          <% if (!listings.length) { %>
+            <p>No items for sale yet.</p>
+          <% } %>
+          <ul class="listings">
+          <% for(var i=0; i<listings.length; i++) {%>
+            <li class="listing" data-listing-id="<%= listings[i]._id %>">
+              <img src="<%= listings[i].image %>" alt="<%= listings[i].title %>">
+              <span><%= listings[i].title %></span>
+              <span><%= listings[i].description %></span>
+              <span class="listing-price">$<%= listings[i].price %></span>
+              <span>Seller: <%= listings[i].created %></span>
+              <span>Status: <%= listings[i].status %> </span>
+              <% if (user.local.username === listings[i].created) { %>
+               <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                <button data-listing-id="<%= listings[i]._id %>" class="deal">Sold</button>
+              <% } %>
+              
+            </li>
+          <% } %>
+          </ul>
+
+          <h2>Add an item</h2>
+        <% if (user.local.email) { %>
+          <form class="listing-form" action="/listings" method="POST">
+            <input type="text" placeholder="Title" name="title" required>
+            <input type="text" placeholder="Description" name="description" required>
+            <input type="number" placeholder="Price" name="price" min="0" step="0.01" required>
+            <input type="text" placeholder="Image URL" name="image" required>
+            <button type="submit">Submit</button>
+          </form>
+        <% } %>
+        </div>
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
